@@ -1,18 +1,20 @@
-# Use Node.js base image
-FROM node:18
+# ใช้ Node.js 20 เป็น base image
+FROM node:20
 
-# Set working directory
+# ตั้ง working directory
 WORKDIR /app
 
-# Copy package.json and install dependencies
+# คัดลอก package.json และ lock file
 COPY package*.json ./
+
+# ติดตั้ง dependencies
 RUN npm install
 
-# Copy the rest of the files
+# คัดลอก source code ทั้งหมด
 COPY . .
 
-# Expose port
-EXPOSE 3000
+# ระบุพอร์ตที่แอปรัน (3007)
+EXPOSE 3007
 
-# Run your app
+# สั่งรันแอป (ไฟล์หลักของคุณคือ index.js)
 CMD ["node", "src/index.js"]

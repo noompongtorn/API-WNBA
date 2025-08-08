@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors'); // Import CORS package
 const app = express();
-const port = 3006;
+const port = 3007;
 const cron = require('node-cron');
 const axios = require('axios');
 
