@@ -43,17 +43,17 @@ app.use("/wnba/api/admin", adminRoutes);
 app.use("/wnba/api/role", roleRoutes);
 app.use("/wnba/api/v1/app", appRoutes);
 
-// cron.schedule("0 * * * *", async () => {
-//   try {
-//     await axios.get(`http://ygevo.myvnc.com/nba/api/v1/app/nba`);
-//   } catch (error) {}
-// });
+cron.schedule("0 * * * *", async () => {
+  try {
+    await axios.get(`http://ygevo.myvnc.com/nba/api/v1/app/nba`);
+  } catch (error) {}
+});
 
-// cron.schedule("0 * * * *", async () => {
-//   try {
-//     await axios.get(`http://ygevo.myvnc.com/nba/api/v1/app/retry-nba`);
-//   } catch (error) {}
-// });
+cron.schedule("0 * * * *", async () => {
+  try {
+    await axios.get(`http://ygevo.myvnc.com/nba/api/v1/app/retry-nba`);
+  } catch (error) {}
+});
 
 // Start the server
 app.listen(port, () => {
