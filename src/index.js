@@ -27,7 +27,7 @@ connectDB();
 app.use(
   cors({
     origin: [
-      "http://ygevo.myvnc.com",
+      "https://ygevo.myvnc.com",
       "https://ygevo.myvnc.com",
       "http://localhost:3000",
     ], // Allow both production and local development
@@ -45,13 +45,13 @@ app.use("/wnba/api/v1/app", appRoutes);
 
 cron.schedule("0 * * * *", async () => {
   try {
-    await axios.get(`http://ygevo.myvnc.com/nba/api/v1/app/nba`);
+    await axios.get(`https://ygevo.myvnc.com/nba/api/v1/app/nba`);
   } catch (error) {}
 });
 
 cron.schedule("0 * * * *", async () => {
   try {
-    await axios.get(`http://ygevo.myvnc.com/nba/api/v1/app/retry-nba`);
+    await axios.get(`https://ygevo.myvnc.com/nba/api/v1/app/retry-nba`);
   } catch (error) {}
 });
 
